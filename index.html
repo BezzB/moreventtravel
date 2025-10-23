@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morevent Travel</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f2f2f2;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    nav {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      z-index: 10;
+    }
+
+    nav h1 {
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav ul li {
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    nav ul li:hover {
+      color: #f7c500;
+    }
+
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+    }
+
+    .hero h2 {
+      font-size: 50px;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      max-width: 600px;
+    }
+
+    .card-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 80px 0;
+      background-color: #fff;
+    }
+
+    .card {
+      position: relative;
+      width: 300px;
+      height: 400px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.6s ease;
+    }
+
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card-content {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      padding: 20px;
+      text-align: left;
+    }
+
+    .card-content h3 {
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
+
+    .card-content p {
+      font-size: 15px;
+      line-height: 1.4;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      background-color: #222;
+      color: #ccc;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .hero h2 {
+        font-size: 36px;
+      }
+
+      .hero p {
+        font-size: 16px;
+        padding: 0 15px;
+      }
+
+      .card {
+        width: 90%;
+      }
+
+      nav {
+        padding: 15px 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <h1>Morevent Travel</h1>
+    <ul>
+      <li>Home</li>
+      <li>Destinations</li>
+      <li>Tours</li>
+      <li>Contact</li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <h2>Discover Africa’s Hidden Gems</h2>
+    <p>Adventure, culture, and beauty await you.</p>
+  </section>
+
+  <section class="card-container">
+    <div class="card" style="background-image: url('https://images.unsplash.com/photo-1600180758890-6e1e3a03a3b7?auto=format&fit=crop&w=600&q=80');">
+      <div class="card-content">
+        <h3>Maasai Mara</h3>
+        <p>Wildlife adventure in Kenya’s plains</p>
+      </div>
+    </div>
+    <div class="card" style="background-image: url('https://images.unsplash.com/photo-1573496774426-c0f0d6c88b4a?auto=format&fit=crop&w=600&q=80');">
+      <div class="card-content">
+        <h3>Diani Beach</h3>
+        <p>Tropical paradise on the coast</p>
+      </div>
+    </div>
+    <div class="card" style="background-image: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=600&q=80');">
+      <div class="card-content">
+        <h3>Mount Kenya</h3>
+        <p>Climb Africa’s second-highest peak</p>
+      </div>
+    </div>
+    <div class="card" style="background-image: url('https://images.unsplash.com/photo-1615041762869-fb3b2a25a3ad?auto=format&fit=crop&w=600&q=80');">
+      <div class="card-content">
+        <h3>Lake Nakuru</h3>
+        <p>Home of flamingos and serenity</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Morevent Travel. All rights reserved.
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const cards = document.querySelectorAll(".card");
+      cards.forEach((card, index) => {
+        setTimeout(() => {
+          card.classList.add("visible");
+        }, index * 600);
+      });
+    });
+  </script>
+</body>
+</html>
